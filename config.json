@@ -3,9 +3,7 @@
     "username": "",
     "password": "",
 
-    "moderators": [{
-            "handle": "guptayatin2001"
-        },
+    "moderators": [
         {
             "handle": "df"
         }
