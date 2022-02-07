@@ -1,7 +1,9 @@
+// Before Running the code, do the following in console;
 // npm init -y
 // npm install minimist
 // npm install puppeteer -g
 
+// To run the file after environment is set, use the following
 // node automation.js --url=https://www.hackerrank.com/auth/login --config=config.json
 
 let minimist = require("minimist");
@@ -109,35 +111,17 @@ function run() {
 
                 await page2.waitFor(3500);
 
-                /*
-                // Since sometimes it shows only on first page
-                // And other times on all the pages;
-                if (i == 0) {
-                    await page2.waitForSelector('button#cancelBtn');
-                    await page2.click('button#cancelBtn');
-                }
-                */
-
                 // Adding the moderator;
                 await page2.waitFor(1500);
                 await page2.waitForSelector('#moderator');
                 await page2.click('#moderator');
 
-                /*
-                Loop for adding multiple moderators in config file;
                 for (let k = 0; k < mod.moderators.length; k++) {
                     await page2.keyboard.type(mod.moderators[k].handle);
                     await page2.waitFor(1500);
                     await page2.waitForSelector('button.btn.moderator-save');
                     await page2.click('button.btn.moderator-save');
                 }
-                */
-
-                await page2.keyboard.type("Adding moderator");
-
-                await page2.waitFor(1500);
-                await page2.waitForSelector('button.btn.moderator-save');
-                await page2.click('button.btn.moderator-save');
 
                 await page2.waitFor(1500);
                 await page2.close();
@@ -155,8 +139,3 @@ function run() {
 
     })()
 }
-
-// For all those who have slow systems and are getting TimeOut error during automation project.
-// add this snippet after creating a new page
-// await page.setDefaultNavigationTimeout(0); 
-// This will give your pc unlimited amount of time to load the page
